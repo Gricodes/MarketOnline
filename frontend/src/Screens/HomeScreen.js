@@ -1,12 +1,23 @@
-import React from "react";
-import data from "../data";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 const HomeScreen = () => {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const {data} = await axios.get('/api/products');
+            setProducts(data)
+        }
+        fetchData();
+    }, [])
+
     return (
         <div>
             <ul className="products">
-                {data.products.map((products) => {
+                {products.map((products) => {
                     return (
                         <li key={products._id}>
                             <div className="product">
