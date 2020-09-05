@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {detailsProduct} from "../actions/productActions";
 
 
-const ProductsScreen = (props) => {
+const ProductScreen = (props) => {
     const [qty, setQty] = useState(1)
     const productDetails = useSelector(state => state.productDetails);
     const {product, loading, error} = productDetails;
@@ -18,7 +18,6 @@ const ProductsScreen = (props) => {
     const handleAddToCard = () => {
         props.history.push(`/cart/${props.match.params.id}?qty=${qty}`)
     }
-
 
     return (
         <div>
@@ -64,6 +63,7 @@ const ProductsScreen = (props) => {
                                             setQty(e.target.value)
                                         }}>
                                             {[...Array(product.countInStack).keys()].map(el => <option key={el+1} value={el+1}>{el+1}</option>)}
+
                                         </select>
                                     </li>
                                     <li>
@@ -82,4 +82,4 @@ const ProductsScreen = (props) => {
         </div>
     )
 }
-export default ProductsScreen;
+export default ProductScreen;
