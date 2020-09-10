@@ -1,5 +1,5 @@
 {
-  "name": "marketonline",
+  "name": "MarketOnline",
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/GriGoryanSyStem/MarketOnline#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.2"
+    "mongoose": "^5.10.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.5",

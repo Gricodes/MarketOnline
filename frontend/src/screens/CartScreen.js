@@ -28,6 +28,8 @@ const CartScreen = (props) => {
         }
     }, [])
 
+
+
     return <div className="cart">
         <div className="cart-list">
             <ul className="cart-list-container">
@@ -74,7 +76,9 @@ const CartScreen = (props) => {
         </div>
         <div className="cart-action">
             <h3>
-                Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
+                Subtotal ({cartItems.reduce(function (a, c) {
+                return a + Number(c.qty)
+            }, 0)} items)
                 :
                 $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
             </h3>
