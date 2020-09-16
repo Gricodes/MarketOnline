@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {listProducts} from "../actions/productActions";
@@ -6,13 +6,14 @@ import {listProducts} from "../actions/productActions";
 const HomeScreen = () => {
 
     const productList = useSelector(state => state.productList);
-    console.log(productList)
+
     const {products, loading, error} = productList;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(listProducts())
-    }, [])
+    }, [dispatch])
 
 
     return (

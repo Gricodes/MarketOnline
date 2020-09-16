@@ -26,7 +26,7 @@ const CartScreen = (props) => {
         if (productId) {
             dispatch(addToCart(productId, qty))
         }
-    }, [])
+    }, [productId,dispatch,qty])
 
 
 

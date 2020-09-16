@@ -5,7 +5,7 @@ import {detailsProduct} from "../actions/productActions";
 
 
 const ProductScreen = (props) => {
-    const [qty, setQty] = useState(1)
+    const [qty, setQty] = useState(1);
     const productDetails = useSelector(state => state.productDetails);
     const {product, loading, error} = productDetails;
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const ProductScreen = (props) => {
 
     useEffect(() => {
         dispatch(detailsProduct(props.match.params.id))
-    }, []);
+    }, [props.match.params.id,dispatch]);
 
     const handleAddToCard = () => {
         props.history.push(`/cart/${props.match.params.id}?qty=${qty}`)
